@@ -52,11 +52,16 @@ $folder  =  "ordenes-compra-detalle";
         </tr>
       </thead>
       <tbody>
-      <?php foreach ($movalmdet_salida->lista($numero,'OC') as $key => $value): 
-       $item = 1;
+        
+      <?php 
+      $item=1;
+      foreach ($movalmdet_salida->lista($numero,'OC') as $key => $value): 
+       
         ?>
+
       <tr>
-      <td style="text-align: center;"><?php echo $item++; ?></td>
+        <td><?php echo $item++; ?></td>
+      
       <td style="text-align: center;"><?php echo $value['numero_rq']; ?></td>
       <td style="text-align: center;"><?php echo $value['codigo']; ?></td>
       <td style="text-align: center;"><?php echo $value['descripcion']; ?></td>

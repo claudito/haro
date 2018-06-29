@@ -14,13 +14,13 @@ $carpeta  =  "rq-detalle";
 <div class="row">
 <div class="col-md-4">
  <div class="form-group">
-<input type="text" name="codigo" class="form-control" value="<?php echo $requisd->consulta($id,'codigo_articulo'); ?>" readonly>
+<input type="text" name="codigo" class="form-control" value="<?php echo $requisd->consulta($id,'codigo_articulo','RQ'); ?>" readonly>
 </div>
  
 </div>
 <div class="col-md-8">
  <div class="form-group">
-<input type="text" class="form-control" value="<?php echo $requisd->consulta($id,'descripcion_articulo'); ?>" readonly>
+<input type="text" class="form-control" value="<?php echo $requisd->consulta($id,'descripcion_articulo','RQ'); ?>" readonly>
 </div>
  
 </div>
@@ -55,14 +55,14 @@ foreach ($centro_costo->lista() as $key => $value): ?>
 <div class="form-group">
 <label>CANTIDAD</label>
 <input type="number" step="any" name="cantidad" id="" class="form-control" required="" min="0.00" 
- value="<?php echo round($requisd->consulta($id,'cantidad'),2); ?>">
+ value="<?php echo round($requisd->consulta($id,'cantidad','RQ'),2); ?>">
 </div>
 </div>
 </div>
 
 <div class="form-group">
 <label>COMENTARIO</label>
-<textarea name="comentario"  rows="4" class="form-control" required=""><?php echo $requisd->consulta($id,'comentario'); ?></textarea>
+<textarea name="comentario"  rows="4" class="form-control" required=""><?php echo $requisd->consulta($id,'comentario','RQ'); ?></textarea>
 </div>
 
 

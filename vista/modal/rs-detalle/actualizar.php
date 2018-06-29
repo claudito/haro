@@ -13,7 +13,7 @@ $carpeta  =  "rq-detalle";
  	
 <div class="form-group">
 <label>CÓDIGO</label>
-<input type="text" name="codigo" class="form-control" value="<?php echo $requisd->consulta($id,'codigo_articulo').' - '.$requisd->consulta($id,'descripcion_articulo'); ?>" readonly>
+<input type="text" name="codigo" class="form-control" value="<?php echo $requisd->consulta($id,'codigo_articulo','RS'); ?>" readonly>
 </div>
 
 <div class="row">
@@ -21,7 +21,7 @@ $carpeta  =  "rq-detalle";
 <div class="form-group">
 <label>CANTIDAD</label>
 <input type="number" step="any" name="cantidad" id="" class="form-control" required="" min="0.00" 
- value="<?php echo round($requisd->consulta($id,'cantidad'),2); ?>">
+ value="<?php echo round($requisd->consulta($id,'cantidad','RS'),2); ?>">
 </div>
 </div>
 
@@ -53,7 +53,7 @@ foreach ($centro_costo->lista() as $key => $value): ?>
 
 <div class="form-group">
 <label>COMENTARIO</label>
-<textarea name="comentario"  rows="5" class="form-control" onchange="Mayusculas(this)" ><?php echo Requisd::consulta($id,'comentario'); ?></textarea>
+<textarea name="comentario"  rows="5" class="form-control" onchange="Mayusculas(this)" ><?php echo Requisd::consulta($id,'comentario','RS'); ?></textarea>
 </div>
 
 <input type="hidden"  name="idnumero"  id="idnumero"  value="<?php echo $id; ?>">

@@ -85,6 +85,37 @@ public function agregar()
 }
 
 
+
+public function eliminar_firma($id)
+{
+   try {
+    $modelo    = new Conexion();
+    $conexion  = $modelo->get_conexion();
+     $query     = "DELETE FROM aprobacion_documentos WHERE nro_documento=:id AND tipo='RQ'";
+    $statement = $conexion->prepare($query);
+    $statement->bindParam(':id',$id);
+    if(!$statement)
+    {
+    return "error";
+    }
+    else
+    {
+    $statement->execute();
+    return "ok";
+    }
+       
+   }
+    catch (Exception $e) 
+   {
+      echo "ERROR: " . $e->getMessage();
+   
+   }
+}
+
+
+
+
+
 public function eliminar($id)
 {
    try {

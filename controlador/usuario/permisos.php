@@ -9,7 +9,7 @@ $message  =  new Message();
 if (isset($_POST['usuario'])) 
 {
 	
- $usuario  = $_POST['usuario'];
+  echo $usuario  = $_POST['usuario'];
 
 foreach ($submenu->lista() as $key => $value) 
 { 	

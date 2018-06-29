@@ -180,7 +180,7 @@ function lista_ubicacion()
 
     $modelo    = new Conexion();
     $conexion  = $modelo->get_conexion();
-    $query     = "SELECT * FROM articulo WHERE id_tipo=1";
+    $query     = "SELECT * FROM articulo WHERE estado=1";
     $statement = $conexion->prepare($query); 
     $statement->execute();
     $result = $statement->fetchAll();

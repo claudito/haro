@@ -11,7 +11,7 @@
 
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 <div class="form-group">
   <label >N° REQUERIMIENTO</label>
 <select name="numero_rq" id="numero_rq" class="form-control" required="">

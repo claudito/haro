@@ -11,12 +11,12 @@
 
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 <div class="form-group">
   <label >N° REQUERIMIENTO</label>
 <select name="numero_rs" id="numero_rs" class="form-control" required="">
 <option value="">[ Seleccionar ]</option>
-<?php foreach (Comovc::lista_rq_det() as $key => $value): ?>
+<?php foreach (Comovc::lista_rq_det22('RS') as $key => $value): ?>
 <option value="<?php echo $value['numero'];?>"><?php echo $value['numero'] ?></option>
 <?php endforeach ?>
 </select>

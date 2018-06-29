@@ -56,7 +56,7 @@ echo  $message->mensaje("Algún dato esta vacío","error","Verifique de nuevo",2
 
 
 
-
+ 
 
 } else {
 echo  $message->mensaje("El saldo llego a 0","warning","Pase a la siguiente O/C",2);

@@ -146,6 +146,33 @@ public function eliminar_det($id)
 
 
 
+public function eliminar_det1($id)
+{
+   try {
+    $modelo    = new Conexion();
+    $conexion  = $modelo->get_conexion();
+     $query     = "DELETE FROM comovd WHERE numero=:id AND tipo='OS'";
+    $statement = $conexion->prepare($query);
+    $statement->bindParam(':id',$id);
+    if(!$statement)
+    {
+    return "error";
+    }
+    else
+    {
+    $statement->execute();
+    return "ok";
+    }
+       
+   }
+    catch (Exception $e) 
+   {
+      echo "ERROR: " . $e->getMessage();
+   
+   }
+}
+
+
 public function actualizar()
 {
    try {
@@ -254,27 +281,6 @@ WHERE c.tipo=:tipo";
 
 
 
-function lista_rq_det()
-{
-   
-  try {
-
-  $modelo    = new Conexion();
-  $conexion  = $modelo->get_conexion();
-  $query     = "SELECT * FROM requisc 
-WHERE tipo='RS' AND  estado!='p' ";
-
-  $statement = $conexion->prepare($query); 
-  
-  $statement->execute();
-  $result = $statement->fetchAll();
-  return $result;
-  } catch (Exception $e) {
-  echo "ERROR: " . $e->getMessage();
-  }
-
-
-}
 
 
 
@@ -286,7 +292,10 @@ function lista_rq_det22($tipo)
   $modelo    = new Conexion();
   $conexion  = $modelo->get_conexion();
   $query     = "SELECT * FROM requisc 
-WHERE tipo=:tipo AND  estado!='P' ";
+WHERE numero IN(SELECT numero FROM requisd WHERE saldo <>0 AND tipo=:tipo) AND tipo=:tipo AND  estado!='P' ";
+
+
+
 
   $statement = $conexion->prepare($query); 
   $statement->bindParam(':tipo',$tipo);

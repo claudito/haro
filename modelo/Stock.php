@@ -59,6 +59,13 @@ public function actualizar()
    }
 }
 
+
+
+
+
+
+
+
 function lista()
 {
 
@@ -66,7 +73,7 @@ try {
   
 $modelo    = new Conexion();
 $conexion  = $modelo->get_conexion();
-$query     = "SELECT s.alm,s.codigo,a.descripcion,SUM(s.cantidad) as cantidad,
+$query     = "SELECT a.id,s.alm,s.codigo,a.descripcion,SUM(s.cantidad) as cantidad,
 s.cant_min,s.cant_max,s.costo_prom 
  FROM stock AS s INNER JOIN articulo AS a ON s.codigo=a.codigo WHERE s.estado='A' group by codigo order by SUM(s.cantidad)  ";
 $statement = $conexion->prepare($query);
@@ -109,6 +116,24 @@ public function consulta($codigo,$campo,$alm)
     }
 }
 
+
+public function consulta1($codigo,$campo,$alm)
+{
+    try {
+        
+    $modelo    = new Conexion();
+    $conexion  = $modelo->get_conexion();
+    $query     = "SELECT s.id,s.alm,s.codigo,a.descripcion,SUM(s.cantidad) as cantidad,s.cant_min,s.cant_max,s.costo_prom
+ FROM stock AS s INNER JOIN articulo AS a ON s.codigo=a.codigo WHERE s.codigo=:codigo";
+    $statement = $conexion->prepare($query);
+    $statement->bindParam(':codigo',$codigo);
+    $statement->execute();
+    $result   = $statement->fetch();
+    return $result[$campo];
+    } catch (Exception $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+}
 
 
 

@@ -15,7 +15,7 @@ if (strlen($id)>0)
 
 $objeto      =  new Comovc();
 $valor       =  $objeto->eliminar($id);
-$valor       =  $objeto->eliminar_det($id);
+$valor       =  $objeto->eliminar_det1($id);
 if($valor=='ok')
 {
   echo  $message->mensaje("Buen Trabajo","success","Registro Eliminado",2);

@@ -16,6 +16,9 @@ if (strlen($id)>0)
 $objeto      =  new Requisc();
 $valor       =  $objeto->eliminar($id);
 $valor1       =  $objeto->eliminar_det($id);
+$valor       =  $objeto->eliminar_firma($id);
+
+
 if($valor=='ok')
 {
   echo  $message->mensaje("Buen Trabajo","success","Registro Eliminado",2);

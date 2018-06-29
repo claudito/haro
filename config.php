@@ -3,10 +3,10 @@
 date_default_timezone_set('America/Lima');
 
 #Path Local
-#define("PATH","http://192.168.1.15/dev/haroing/");
+define("PATH","http://192.168.1.15/dev/haroing/");
 
 #Path Remoto
-define("PATH","http://haro.perutec.com.pe/");
+#efine("PATH","http://logistica.perutec.com.pe/");
 
 #Rutas y Carpetas
 define("RUTA", dirname(__FILE__).DIRECTORY_SEPARATOR);#Ruta del proyecto
@@ -17,8 +17,10 @@ define("FOLDER_FIRMA",RUTA."docs/pdf/img/firma/");#Ruta de Firmas de Usuarios
 #Datos de Conexión a Base de Datos
 define("SERVER","localhost");
 define("USER", "root");
-define("PASS", "userperutecdb");
+#define("PASS", "userperutecdb");
+define("PASS", "perutec");
 define("BD", "haroing_db");
+#define("BD", "haroing_db");
 
 #Configuración del Sistema
 define("FECHA",'Y-m-d');#Formato de Fecha

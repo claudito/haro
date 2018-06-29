@@ -97,6 +97,37 @@ $query     = "INSERT INTO requisd(numero,item,codigo,descripcion,unidad,cantidad
 }
 
 
+
+
+public function eliminar_firma1($id)
+{
+   try {
+    $modelo    = new Conexion();
+    $conexion  = $modelo->get_conexion();
+     $query     = "DELETE FROM aprobacion_documentos WHERE nro_documento=:id AND tipo='RS'";
+    $statement = $conexion->prepare($query);
+    $statement->bindParam(':id',$id);
+    if(!$statement)
+    {
+    return "error";
+    }
+    else
+    {
+    $statement->execute();
+    return "ok";
+    }
+       
+   }
+    catch (Exception $e) 
+   {
+      echo "ERROR: " . $e->getMessage();
+   
+   }
+}
+
+
+
+
 public function eliminar($id)
 {
    try {
@@ -215,7 +246,7 @@ WHERE r.numero =:numero AND r.tipo = :tipo ORDER BY item";
 
 
 
-public function consulta($id,$campo)
+public function consulta($id,$campo,$tipo)
 {
     try {
         
@@ -227,9 +258,10 @@ left join articulo as a on r.codigo = a.codigo
 left join unidad as u on r.unidad = u.descripcion
 left join centro_costo as c on r.centro_costo = c.codigo
 
-WHERE r.id=:id";
+WHERE r.id=:id and r.tipo=:tipo";
     $statement = $conexion->prepare($query);
     $statement->bindParam(':id',$id);
+    $statement->bindParam(':tipo',$tipo);
     $statement->execute();
     $result   = $statement->fetch();
     return $result[$campo];
@@ -271,19 +303,19 @@ public function actualizar_rq($saldo,$numero,$tipo)
    }
 }
 
-public function actualizar_rq1($numero_rq,$rq,$id_detalle)
+public function actualizar_rq1($numero_rq,$rq,$id_detalle,$saldo)
 {
    try {
     $modelo    = new Conexion();
     $conexion  = $modelo->get_conexion();
-     $query     = "UPDATE  requisd  SET saldo=0 WHERE 
+     $query     = "UPDATE  requisd  SET saldo=saldo-:saldo WHERE 
       numero=:numero_rq AND tipo=:rq AND id=:id_detalle";
 
     $statement = $conexion->prepare($query);
     $statement->bindParam(':numero_rq',$numero_rq);
     $statement->bindParam(':rq',$rq);
     $statement->bindParam(':id_detalle',$id_detalle);
-   
+    $statement->bindParam(':saldo',$saldo);
     if(!$statement)
     {
     return "error";
