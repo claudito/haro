@@ -3,7 +3,7 @@
 date_default_timezone_set('America/Lima');
 
 #Path Local
-define("PATH","http://haro.perutec.com.pe/");
+define("PATH","http://localhost/haro/");
 
 #Path Remoto
 #efine("PATH","http://logistica.perutec.com.pe/");
@@ -17,7 +17,7 @@ define("FOLDER_FIRMA",RUTA."docs/pdf/img/firma/");#Ruta de Firmas de Usuarios
 #Datos de Conexión a Base de Datos
 define("SERVER","localhost");
 define("USER", "root");
-define("PASS", "userperutecdb");
+define("PASS", "");
 define("BD", "haroing_db");
 #define("BD", "haroing_db");
 

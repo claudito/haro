@@ -3,9 +3,9 @@ Options -Indexes
 # Activar RewriteEngine
 RewriteEngine on
 #Path Local:
-#RewriteBase /dev/haroing/
+RewriteBase /haro/
 #Path Remoto:
-RewriteBase /
+#RewriteBase /
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
  

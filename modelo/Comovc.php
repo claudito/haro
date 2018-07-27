@@ -291,10 +291,9 @@ function lista_rq_det22($tipo)
 
   $modelo    = new Conexion();
   $conexion  = $modelo->get_conexion();
-  $query     = "SELECT * FROM requisc 
-WHERE numero IN(SELECT numero FROM requisd WHERE saldo <>0 AND tipo=:tipo) AND tipo=:tipo AND  estado!='P' ";
+  $query     = "SELECT * FROM requisc WHERE tipo=:tipo";
 
-
+/*--WHERE numero IN(SELECT numero FROM requisd WHERE saldo <>0 AND tipo=:tipo) AND tipo=:tipo AND  estado!='P' */
 
 
   $statement = $conexion->prepare($query); 
