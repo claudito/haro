@@ -23,9 +23,6 @@ include'../vista/modal/'.$carpeta.'/eliminar.php';
 
  ?>
 
- <style>
- table{font-size: 12px;}
- </style>
 
 <div class="row">
 <div class="col-md-12">

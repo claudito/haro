@@ -44,6 +44,6 @@ include'../vista/modal/'.$carpeta.'/eliminar.php';
 <script> 
 loadTabla(1); 
 </script>
-<?php $html -> footer(); ?>
+<?php  Html::footer(); ?>
 
 

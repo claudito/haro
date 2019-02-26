@@ -8,8 +8,6 @@ $assets   ->sweetalert();
 $assets   ->datatables();
 $html->header();
 $carpeta = "proveedor";?>
-
-<style>table{font-size: 10px;}</style>
 <?php
 include'../vista/modal/'.$carpeta.'/agregar.php';
 include'../vista/modal/'.$carpeta.'/eliminar.php';

@@ -4,8 +4,10 @@ include'../../../autoload.php';
 include'../../../session.php';
 
 $id       =  $_GET['id'];
+$numero   =  $_GET['numero'];
 $requisd  =  new Requisd();
 $carpeta  =  "rq-detalle";
+
 
 ?>
 
@@ -74,26 +76,41 @@ foreach ($centro_costo->lista() as $key => $value): ?>
 
  </form>
 
- <script>
-    $("#actualizar").submit(function(e){
-    e.preventDefault();
-    var parametros = $(this).serialize();
-     $.ajax({
-          type: "POST",
-          url: "../controlador/<?php echo $carpeta; ?>/actualizar.php",
-          data: parametros,
-           beforeSend: function(objeto){
-            $("#mensaje").html("Mensaje: Cargando...");
-            },
-          success: function(datos){
-          $("#mensaje").html(datos);
-         //$("#actualizar")[0].reset();  //resetear inputs
-          $('#editModal').modal('hide'); //ocultar modal
-          $('body').removeClass('modal-open');
-          $("body").removeAttr("style");
-          $('.modal-backdrop').remove();
-          loadTabla(1,<?php echo $requisd->consulta($id,'numero'); ?>);
-          }
-      });
-  });
+<script>
+$("#actualizar").submit(function(e){
+
+parametros  = $(this).serialize();
+
+$.ajax({
+
+url:"../controlador/rq-detalle/actualizar.php",
+type:"POST",
+data:parametros,
+beforeSend:function()
+{
+
+$("#mensaje").html("Mensaje: Cargando...");
+
+},
+success:function(datos)
+{
+
+$("#mensaje").html(datos);
+$('body').removeClass('modal-open');
+$("body").removeAttr("style");
+$('.modal-backdrop').remove();
+loadTabla(1,<?= $numero ?>);
+
+
+
+}
+
+
+
+
+});
+
+
+e.preventDefault();     
+});
 </script>

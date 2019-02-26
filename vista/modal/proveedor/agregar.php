@@ -45,7 +45,7 @@
 <div class="col-md-12">
 <div class="form-group">
 <label>RAZON SOCIAL</label>
-<input type="text" name="razon_social" id=""  required="" class="form-control" maxlength="20" 
+<input type="text" name="razon_social" id=""  required="" class="form-control" 
  onchange="Mayusculas(this)">
 </div>
 </div>

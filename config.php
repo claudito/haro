@@ -18,7 +18,7 @@ define("FOLDER_FIRMA",RUTA."docs/pdf/img/firma/");#Ruta de Firmas de Usuarios
 define("SERVER","localhost");
 define("USER", "root");
 define("PASS", "");
-define("BD", "haroing_db");
+define("BD", "db_haro");
 #define("BD", "haroing_db");
 
 #Configuración del Sistema

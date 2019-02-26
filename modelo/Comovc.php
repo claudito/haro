@@ -369,7 +369,7 @@ public function consulta($id,$campo,$tipo)
     $query     = "SELECT c.id,c.lugar_entrega,c.condiciones_pago,c.requerimiento,c.cotizacion,c.modo_entrega,c.numero, concat(u.nombres, ' ',u.apellidos) as usuario, p.id as idproveedor, p.contacto as proveedor,p.razon_social,p.ruc, 
 c.fecha_inicio, c.fecha_fin, c.comentario,
  c.id as idcentro_costo,cc.codigo as codigo_centrocosto, cc.descripcion as centro_costo, of.id as id_ot, of.codigo as codigo_ot,
- of.codigo_cliente as cliente_ot ,a.codigo as areacodigo,a.id as idarea, a.descripcion as area, c.tipo, c.estado, c.prioridad
+ of.codigo_cliente as cliente_ot ,a.codigo as areacodigo,a.id as idarea, a.descripcion as area, c.tipo, c.estado, c.prioridad,p.direccion1,p.contacto,p.correo,p.telefono
 from comovc as c
 left join usuario as u on c.id_usuario = u.id
 left join centro_costo as cc on c.centro_costo = cc.codigo

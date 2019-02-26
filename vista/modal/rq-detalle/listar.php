@@ -55,7 +55,7 @@ $folder  =  "rq-detalle";
 			
       <td><?php echo $value['comentario']; ?></td>
 			<td>
-			 <a data-id="<?php echo $value['id'];?>"  class="btn btn-edit btn-sm btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+			 <a data-id="<?php echo $value['id'];?>" data-numero="<?= $value['numero'] ?>"  class="btn btn-edit btn-sm btn-info"><i class="glyphicon glyphicon-edit"></i></a>
 		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#dataDelete" data-id="<?php echo $value['id']; ?>"><i class="glyphicon glyphicon-trash"></i></button>
 			</td>
 			</tr>
@@ -68,8 +68,12 @@ $folder  =  "rq-detalle";
    <!-- Modal  Actualizar-->
   <script>
   	$(".btn-edit").click(function(){
-  		id = $(this).data("id");
-  		$.get("../vista/modal/<?php echo $folder; ?>/actualizar.php","id="+id,function(data){
+      id         = $(this).data("id");
+      numero     = $(this).data("numero");
+      parametros = {'id':id,'numero':numero};
+      url = "../vista/modal/<?php echo $folder; ?>/actualizar.php";
+
+  		$.get(url,parametros,function(data){
   			$("#form-edit").html(data);
   		});
   		$('#editModal').modal('show');

@@ -24,12 +24,12 @@ echo  (isset($_GET['ok'])) ? $message->mensaje("Bienvenido","success",$_SESSION[
 	<div class="container">
 	<div class="row">
 	<div class="col-md-4">
-	<img src="assets/img/icono.png" alt="" width="400" class="img-responsive">	
+	<img src="assets/img/icono.png" alt="" width="200" class="img-responsive">	
 	</div>
 	<div class="col-md-8">
 
-		<h1><?php echo TITULO_HOME; ?> <small><?php echo VERSION; ?></small></h1>
-		<p><?php echo DESC_HOME; ?></p>
+		<h1><?php echo TITULO_HOME; ?> </h1>
+		<p><?php echo DESC_HOME.' '.VERSION; ?></p>
 		<p>
 			<a class="btn btn-primary btn-lg" data-toggle="modal" href="#modal-informacion"><i class="fa fa-search fa-1x"></i> Conoce más del Sistema.</a>
 		</p>

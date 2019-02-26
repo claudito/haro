@@ -8,9 +8,7 @@ $assets   ->sweetalert();
 $assets   ->datatables();
 $assets   ->datatables_export();
 $html->header();
-$carpeta = "ordenes-compra";?>
-<style>table{font-size: 10px;}</style>
-<?php
+$carpeta = "ordenes-compra";
 include'../vista/modal/'.$carpeta.'/agregar.php';
 include'../vista/modal/'.$carpeta.'/eliminar.php';
 

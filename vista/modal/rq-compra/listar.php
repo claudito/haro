@@ -82,7 +82,7 @@ $folder   =  "rq-compra";
 		
 		<a href="rq-compra-detalle?codigo=<?php echo $value['numero'];?>" class="btn btn-primary btn-xs" title="Detalles"><i class="glyphicon glyphicon-list"></i></a>
 		 <a data-id="<?php echo $value['numero'];?>" id=""  class="btn btn-edit btn-xs btn-info" title="Actualizar"><i class="glyphicon glyphicon-edit"></i></a>
-		<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#dataDelete" data-id="<?php echo $value['numero']; ?>" title="Eliminar"><i class="glyphicon glyphicon-trash"></i></button>
+	
 		<a href="<?php echo PATH; ?>docs/pdf/reporte/rq?id=<?php echo $value['numero']; ?>" class="btn btn-warning btn-xs" target="_blank" title="Imprimir"><i class="glyphicon glyphicon-print"></i></a>
 		</td>
 	

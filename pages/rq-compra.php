@@ -8,7 +8,6 @@ $assets   ->sweetalert();
 $assets   ->datatables();
 $html->header();
 $carpeta = "rq-compra";?>
-<style>table{font-size: 11px;}</style>
 <?php
 include'../vista/modal/'.$carpeta.'/agregar.php';
 include'../vista/modal/'.$carpeta.'/eliminar.php';

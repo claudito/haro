@@ -1,6 +1,9 @@
 <?php 
 # Cargamos la librería dompdf.
-include'../../../librerias/dompdf/dompdf_config.inc.php';
+include'../../../vendor/autoload.php';
+
+// reference the Dompdf namespace
+use Dompdf\Dompdf;
 
 #Autoload
 include'../../../autoload.php';

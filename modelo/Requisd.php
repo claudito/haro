@@ -133,7 +133,7 @@ public function eliminar($id)
    try {
     $modelo    = new Conexion();
     $conexion  = $modelo->get_conexion();
-     $query     = "DELETE FROM requisc WHERE numero=:id";
+     $query     = "DELETE FROM requisd WHERE id=:id";
     $statement = $conexion->prepare($query);
     $statement->bindParam(':id',$id);
     if(!$statement)

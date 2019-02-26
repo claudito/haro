@@ -33,7 +33,7 @@ $assets ->sweetalert();
   <?php 
   $usuario  =  new Usuario();
   foreach ($usuario->lista() as $key => $value): ?>
-  <option value="<?php echo $value['correo']; ?>"><?php echo $value['nombres'].' '.$value['apellidos']; ?></option>
+  <option value="<?php echo $value['user']; ?>"><?php echo $value['nombres'].' '.$value['apellidos']; ?></option>
   <?php endforeach ?>
   </select>
   </div>

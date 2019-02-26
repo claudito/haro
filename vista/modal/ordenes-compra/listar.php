@@ -17,7 +17,7 @@ $folder   =  "ordenes-compra";
 	<div class="panel-body">
 
 	<div class="table-responsive">
-	<table  id="consulta" class="table table-bordered table-condensed">
+	<table  id="consulta" class="table table-bordered table-condensed" style="font-size: 12px">
 		<thead>
 			<tr class="active">
 				<th>OC</th>
