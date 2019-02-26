@@ -229,7 +229,7 @@ left join articulo as a on r.codigo = a.codigo
 left join unidad as u on r.unidad = u.descripcion
 left join centro_costo as c on r.centro_costo = c.codigo
 
-WHERE r.numero =:numero AND r.tipo = :tipo ORDER BY item";
+WHERE r.numero =:numero AND r.tipo = :tipo ORDER BY r.id";
 	$statement = $conexion->prepare($query);
   $statement->bindParam(':numero',$numero);
   $statement->bindParam(':tipo',$tipo);

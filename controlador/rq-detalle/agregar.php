@@ -3,36 +3,56 @@
 include'../../autoload.php';
 include'../../session.php';
 
+$conexion =  new Conexion();
+$conexion =  $conexion->get_conexion();
 
 $articulo       =  new Articulo();
 $requisc        =  new Requisc();
 $funciones      =  new Funciones();
 $message        =  new Message();
 
-$numero         = $funciones->validar_xss($_POST['idnumero']);
-$idcodigo       =  $funciones->validar_xss($_POST['codigo']);
-$item           = 0;
-$codigo         = $articulo->consulta($idcodigo,'codigo');
-$descripcion    = $articulo->consulta($idcodigo,'descripcion');
-$unidad         = $articulo->consulta($idcodigo,'unidad');
-$cantidad       = $funciones->validar_xss($_POST['cantidad']);
-$saldo          = $funciones->validar_xss($_POST['cantidad']);
-$centro_costo   = $funciones->validar_xss($_POST['centro_costo']);
-//$ot             = $funciones->validar_xss($_POST['ot']);
-$comentario     = $funciones->validar_xss($_POST['comentario']);
-$fecha          = date('Y-m-d');
-$tipo           = 'RQ';
+$idnumero       =   $_REQUEST['idnumero'];
+$codigo         =   $_REQUEST['codigo'];
+$cantidad       =   $_REQUEST['cantidad'];
+$comentario     =   $funciones->validar_xss($_REQUEST['comentario']);
+$centro_costo   =   $_REQUEST['centro_costo'];
 
-$requisd =  new Requisd($numero,$item,$codigo,$descripcion,$unidad,$cantidad,$saldo,$centro_costo/*,$ot*/,$comentario,$fecha,$tipo);
-$valor   =  $requisd->agregar();
+try {
+	
+$query =  "SELECT * FROM articulo WHERE id=:codigo";
+$statement = $conexion->prepare($query);
+$statement->bindParam(':codigo',$codigo);
+$statement->execute();
+$data = $statement->fetch(PDO::FETCH_ASSOC);
 
-switch ($valor) {
-	case 'ok':
-	echo  $message->mensaje("Buen Trabajo","success","Registro Existoso",2);
-		break;
-	default:
-	echo  $message->mensaje("Error","error","Intente de Nuevo",2);
-		break;
+##########
+
+$query =  "INSERT INTO requisd(numero, item, codigo, descripcion, unidad, cantidad, saldo, comentario, centro_costo, ot, maquina, tipo)
+VALUES
+(:numero, 0, :codigo, :descripcion, 'UNIDAD', :cantidad, :saldo, comentario, :centro_costo, '', '', 'RQ')";
+$statement = $conexion->prepare($query);
+$statement->bindParam(':numero',$idnumero);
+$statement->bindParam(':codigo',$data['codigo']);
+$statement->bindParam(':descripcion',$data['descripcion']);
+$statement->bindParam(':cantidad',$cantidad);
+$statement->bindParam(':saldo',$cantidad);
+$statement->bindParam(':centro_costo',$centro_costo);
+$statement->execute();
+echo  $message->mensaje("Buen Trabajo","success","Registro Agregado",2);
+
+
+
+} catch (Exception $e) {
+	
+echo "Error: ".$e->getMessage();
+
+
 }
+
+
+
+
+
+
 
  ?>

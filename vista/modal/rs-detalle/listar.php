@@ -45,8 +45,11 @@ $folder  =  "rs-detalle";
  			</thead>
  			<tbody>
  			<?php foreach ($requisd->lista($numero,'RS') as $key => $value): ?>
+       
+       <?php $item = $key+1; ?>
+
 			<tr>
-			<td><?php echo $value['item']; ?></td>
+			<td><?php echo $item; ?></td>
       <td><?php echo $value['codigo_articulo']; ?></td>
       <td><?php echo $value['descripcion_articulo']; ?></td>
       <td><?php echo $value['unidad']; ?></td>
