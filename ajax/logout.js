@@ -1,4 +1,4 @@
-var path  = "http://haro.perutec.com.pe/";
+var path  = "http://localhost/haro/";
 
 
 function logout(){
